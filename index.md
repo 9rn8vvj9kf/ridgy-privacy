@@ -17,3 +17,23 @@ Appleのオンデバイス機能だけを使っています
 
 ## 4. お問い合わせ
 開発者：秋夫（メール：mqkx31101@gmail.com）
+
+＃# Privacy Policy
+Last updated: 2026-01-17
+
+## 1. Information Collected
+This app does not collect or transmit personal information to the developer's servers.
+
+## 2. In-App Data Processing
+Functions such as voice-to-text, translation, and handwriting input are displayed on the device.
+When taking screenshots or recording video, the screen contents may be saved to the image/video.
+
+## 3. Third-Party Provision
+This app does not provide user data to third parties.
+
+## 4. Voice Translation and Speech Recognition
+This app uses only Apple's on-device features.
+Data is not sent to external APIs (Google/Firebase/our own server).
+
+## 4. Contact Us
+Developer: Akio (Email: mqkx31101@gmail.com

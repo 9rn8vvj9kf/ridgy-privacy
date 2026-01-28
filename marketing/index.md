@@ -27,3 +27,7 @@ A. The first time requires a one-time language download. Please try once while o
 - 医療・救急・法律・金融など高リスク用途には使用しないでください。  
 - 個人情報（氏名・住所・生年月日・口座番号・パスワード等）は表示しないでください。  
 - 機微情報が表示されている状態でのスクリーンショット/画面録画/撮影/共有は禁止です。
+
+Do not use for high-risk applications such as medical, emergency, legal, or financial purposes.
+- Do not display personal information (name, address, date of birth, account number, password, etc.).
+- Do not take screenshots, record the screen, take photos, or share sensitive information when it is displayed.
