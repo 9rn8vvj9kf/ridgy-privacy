@@ -3,7 +3,7 @@
 ## お問い合わせ / Contact
 - Email: 9rn8vvj9kf@privaterelay.appleid.com
 
-できれば以下を添えてください：
+できれば以下を添えてください/If possible, please include the following:
 - iPadの機種 / Device model
 - iPadOSのバージョン / iPadOS version
 - アプリのバージョン（Build番号）/ App version (Build)
