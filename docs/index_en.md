@@ -1,28 +1,56 @@
-# Bridgy Help (English)
-
-Last updated: 2026-02-23
-
-## About
-Bridgy is an iPad app designed to **assist (“bridge”) face-to-face communication** in situations where communication is difficult due to hearing impairment, difficulty speaking, language differences, or similar circumstances.
-
-- Handwriting (finger / Apple Pencil)
-- Typing
-- Speech-to-text (Speech)
-- On-screen translation (Translation / Translate)
-
-**This app can be used offline; however, depending on Apple’s mechanisms, speech recognition and/or translation processing may in some cases be performed on Apple’s servers.**
-
----
-
-## Basic Use
-1. Launch the app  
-2. Choose an input method (handwriting / typing / speech)  
-3. Show translation if needed  
-4. Share the screen to support in-person conversation  
-
----
-
-## Important Notes
-- **Do NOT use this app for any high-risk purposes (medical, emergency/safety, legal, financial).**
-- **Do NOT enter or display sensitive personal information (address, account numbers, passwords, etc.).**
-- **Be careful with screenshots/screen recordings/sharing, especially when sensitive information is visible.**
+利用規約・プライバシー注意事項（全文）
+（最後までスクロールしてください）
+1）目的
+本アプリは、難聴、発話が困難な方、言語の違い等によりコミュニケーションが困難な場面で、
+対面での会話の補助（橋渡し）を行うことを目的としています。
+オフラインで利用できます（ただし音声認識/翻訳はAppleの仕組みによりサーバー処理になる場合があります）。
+2）対応機器・動作環境
+・iPad　（画面が大きいため操作が容易です）
+・iPadOS 18 　IOS 18 以上のバージョン
+・Apple Pencil は任意です（あると便利です）
+3）禁止用途（重要）
+本アプリは、高リスク用途での使用は禁止します
+・医療（診断、治療、投薬、同意取得、医療現場での指示伝達等）
+・救急/安全（緊急通報、避難指示、災害、事故対応、生命身体に関わる判断、指示伝達等）
+・金融（投資判断、送金、支払い、税務、会計、保険の判断等）
+・法律（法律相談、契約内容の最終判断、紛争、訴訟対応等）
+　等に関する重要な判断、助言、診断、手続きのための利用を想定していません。
+　これらの目的での利用を禁止します。
+　必要な場合は専門家へご相談ください。
+4）精度に関する注意（音声文字変換／翻訳）
+・マイク入力は、周囲の雑音、発話の不明瞭さ、話し方や環境等により、文字変換が正確でない場合があります。
+・翻訳機能は、誤訳、不完全、不自然な表現が生じる場合があります。
+・利用者は表示結果を十分確認したうえでご利用ください。
+5）機微性の高い個人情報（表示しないでください）
+プライバシー／セキュリティ事故を防ぐため、次のような機微性の高い個人情報は入力・表示しないでください
+（例）：
+・氏名、生年月日、住所、電話番号
+・銀行名、口座番号
+・クレジット／デビットカード番号
+・パスワード、暗証番号、セキュリティコード
+6）同意（個人情報を扱う場合）
+個人情報を画面に表示する場合は、相手の同意が必要です。
+相手に意思能力がない場合は、法定代理人（保護者等）の同意が必要です。
+7）画面キャプチャ（スクリーンショット／画面録画）の第三者との共有禁止
+画面キャプチャ（スクリーンショットおよび画面録画を含む）は端末利用者が端末の紛失、
+盗難等の場合操作が不能になり、意図しない情報漏洩につながる可能性があります。
+本アプリで完全に防止できない場合があります。機微情報を表示しないよう十分に注意し
+必要がある場合は相手の同意を得てください。
+8）Appleのサービスについて（音声認識／翻訳）
+本アプリはApple提供の音声認識および／または翻訳機能を利用する場合があります。
+端末の設定や利用状況により、処理は端末内で行われる場合であっても
+機能実行のために音声／テキストがAppleのサーバーで処理される場合もあります。
+開発者はApple側の処理方法を制御できません。
+9）開発者が運用するサーバーについて
+開発者は、会話内容を意図的にアップロードまたは保存するためのサーバーを運用していません。
+開発者は、画面表示内容を収集しません
+ただし、上記のとおりAppleのサービスにより、音声認識／翻訳のために処理が行われる場合があります。
+10）免責・責任の制限
+適用法令で認められる範囲で、開発者は本アプリの利用または利用不能により生じた損害（誤変換・誤訳への依拠、手続き遅延、間接損害、逸失利益等を含む）
+について責任を負いません。本条は、適用法令により制限できない利用者の権利を制限するものではありません。
+11）同意
+「同意する」を押すことで、本規約に同意したものとみなします。
+12)準拠法
+本規約は日本語を正文とし、その準拠法は日本法とします。当アプリに起因または関連して開発者とユーザーの間に生じた紛争については
+岡山地方裁判所を第一審の専属的合意管轄裁判所とします。
+以上
