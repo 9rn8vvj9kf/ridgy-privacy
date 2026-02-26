@@ -1,8 +1,7 @@
 # Bridgy FAQ (English)
 
 ## Q1. What can this app do?
-**A1.** Bridgy supports face-to-face communication using a two-board (top/bottom) layout. It displays text and translations to help with written conversation.
-
+**A1.** Bridgy helps “bridge” face-to-face conversations using on-screen text, writing, and translation.
 ## Q2. How can I input text?
 **A2.** You can use:
 - Drawing/handwriting (finger / Apple Pencil)
@@ -17,8 +16,8 @@
 ## Q4. I can’t use translation. Please explain.
 **A4.** The first time only, language data may need to be downloaded/prepared. Please connect to the internet and try again.
 
-**Supported languages:** English, Spanish, French, Japanese, Vietnamese  
-**Translation pairs:** 25 combinations (e.g., EN↔EN, EN↔ES, EN↔FR, EN↔JA, EN↔VI, etc.)
+**Supported languages:** English, Spanish, French, italiano,Japanese, Vietnamese  
+**Translation pairs:** 36 combinations (e.g., EN↔EN, EN↔ES, EN↔FR, EN↔it, EN↔JA, EN↔VI, etc.)
 
 ### 1) Translation mode settings
 **Manual translation mode** (you confirm that the input was correctly converted to text before translating)  
