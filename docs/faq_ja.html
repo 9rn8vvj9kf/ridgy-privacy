@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bridgy FAQ</title>
+<style>
+  :root {
+    --sky: #4AABDB;
+    --sky-light: #E8F6FD;
+    --dark: #1a2940;
+    --text: #2c3e50;
+    --text-light: #6b7c93;
+    --white: #ffffff;
+    --radius: 16px;
+    --shadow: 0 4px 24px rgba(74,171,219,0.13);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    background: linear-gradient(135deg, #f0f8ff 0%, #e8f6fd 100%);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 0 0 60px 0;
+  }
+
+  /* Header */
+  header {
+    background: linear-gradient(135deg, var(--sky) 0%, #2980b9 100%);
+    color: white;
+    padding: 40px 24px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '🌈';
+    font-size: 64px;
+    display: block;
+    margin-bottom: 12px;
+  }
+  header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  header p {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 4px;
+  }
+  .lang-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: 0.85rem;
+    margin-top: 10px;
+  }
+
+  /* Lang toggle */
+  .lang-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px 24px 0;
+  }
+  .lang-btn {
+    padding: 8px 28px;
+    border-radius: 24px;
+    border: 2px solid var(--sky);
+    background: white;
+    color: var(--sky);
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .lang-btn.active {
+    background: var(--sky);
+    color: white;
+  }
+
+  /* Container */
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 28px 20px 0;
+  }
+
+  /* FAQ Item */
+  .faq-item {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 16px;
+    overflow: hidden;
+    border-left: 5px solid var(--sky);
+    transition: box-shadow 0.2s;
+  }
+  .faq-item:hover { box-shadow: 0 8px 32px rgba(74,171,219,0.2); }
+
+  .faq-question {
+    padding: 18px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    user-select: none;
+  }
+  .faq-q-num {
+    background: var(--sky);
+    color: white;
+    border-radius: 8px;
+    padding: 2px 10px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    white-space: nowrap;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .faq-q-text {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.5;
+    flex: 1;
+  }
+  .faq-arrow {
+    color: var(--sky);
+    font-size: 1.1rem;
+    transition: transform 0.25s;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+  .faq-answer {
+    display: none;
+    padding: 0 20px 20px 20px;
+    border-top: 1px solid var(--sky-light);
+  }
+  .faq-item.open .faq-answer { display: block; }
+  .faq-answer-inner {
+    padding-top: 14px;
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: var(--text);
+  }
+  .faq-answer-inner strong {
+    color: var(--sky);
+    font-weight: 700;
+  }
+  .faq-answer-inner ul {
+    margin: 8px 0 8px 20px;
+  }
+  .faq-answer-inner li { margin-bottom: 4px; }
+  .faq-answer-inner .note {
+    background: var(--sky-light);
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+  }
+  .faq-answer-inner .step {
+    background: #f8fffe;
+    border-left: 3px solid var(--sky);
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 8px 0;
+    font-size: 0.92rem;
+  }
+  .faq-answer-inner h4 {
+    color: var(--sky);
+    font-size: 0.93rem;
+    margin: 12px 0 6px;
+    font-weight: 700;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 32px 20px 0;
+    color: var(--text-light);
+    font-size: 0.85rem;
+  }
+  footer a { color: var(--sky); text-decoration: none; }
+
+  /* Section label */
+  .section-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--sky);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 28px 0 12px;
+    padding-left: 4px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Bridgy</h1>
+  <p>人と人をつなぐ橋渡しアプリ</p>
+  <p>Bridging People, Breaking Barriers</p>
+  <span class="lang-badge">FAQ よくある質問</span>
+</header>
+
+<div class="lang-toggle">
+  <button class="lang-btn active" onclick="showLang('ja')">日本語</button>
+  <button class="lang-btn" onclick="showLang('en')">English</button>
+</div>
+
+<!-- 日本語 -->
+<div id="faq-ja" class="container">
+
+  <div class="section-label">基本的な使い方</div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-num">Q1</span>
+      <span class="faq-q-text">このアプリは何ができますか？</span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Bridgy は、対面での文字表示・筆談・翻訳を通じて会話を「橋渡し」するアプリです。<br>
+        耳が聞こえない方・言葉が出ない方・言葉の壁がある方が、1台のiPad/iPhoneで向かい合って会話できます。
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-num">Q2</span>
+      <span class="faq-q-text">文字を入力する方法は？</span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        次の方法が使えます：
+        <ul>
+          <li>線描画（指／Apple Pencil）</li>
+          <li>キーボード入力</li>
+          <li>Apple Pencilのスクリブル（手書き文字入力）</li>
+          <li>音声入力（音声→文字起こし）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-num">Q3</span>
+      <span class="faq-q-text">マイクが動きません</span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        iPadの <strong>設定 → プライバシーとセキュリティ → マイク</strong> でBridgyの許可を確認してください。
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">翻訳機能</div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-num">Q4</span>
+      <span class="faq-q-text">翻訳機能が使えません</span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        初回のみ、言語データのダウンロード・準備が必要です。ネットに接続して再度お試しください。<br><br>
+        <strong>対応言語：</strong> 日本語・英語・スペイン語・フランス語・ベトナム語・イタリア語（66ペア）<br><br>
+        <h4>翻訳モードの設定</h4>
+        <div class="step"><strong>手動翻訳：</strong> マイク右の <strong>→←</strong> マークをタップして翻訳</div>
+        <div class="step"><strong>自動翻訳：</strong> 録音停止後、相手の言語へ自動翻訳</div>
+        <h4>言語の設定</h4>
+        <strong>歯車（設定）</strong>をタップして「自分」と「相手」の言語をセットします。
+        <h4>音声入力の手順</h4>
+        <div class="step">① マイクマークをタップ（色が変わります）<br>② もう一度タップして停止 → 文字が表示されます</div>
+        <h4>キーボード入力の手順</h4>
+        <div class="step">① 「文字を入力（ペン／キーボード）」をタップ<br>② 入力者（自分／相手）と言語を選択<br>③ 白い部分をタップしてキーボード入力<br>④「追加」をタップ</div>
+        <div class="note">💡 定型文は「設定 → 一般 → キーボード → ユーザ辞書」に登録すると便利です！短い単語で長文を一発表示できます。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-num">Q5</span>
+      <span class="faq-q-text">自動翻訳と手動翻訳の違いは？</span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <strong>手動翻訳：</strong> →← マークをタップしたときに翻訳します。文字を確認してから翻訳したい場合に便利です。<br><br>
+        <strong>自動翻訳：</strong> 録音停止後に自動で翻訳します。
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-num">Q6</span>
+      <span class="faq-q-text">自動翻訳が初回だけ動きません</span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        初回のみ言語データのダウンロードが必要なため、最初の1回は<strong>手動翻訳ボタン</strong>で翻訳してください。2回目以降は自動翻訳が動作します。
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">操作・画面</div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-num">Q7</span>
+      <span class="faq-q-text">消しゴムとゴミ箱の違いは？</span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <strong>消しゴム：</strong> 線描画（線）を消します。<br>
+        <strong>ゴミ箱：</strong> 線と文字を全て消去します。
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-num">Q8</span>
+      <span class="faq-q-text">文字を拡大・縮小・移動できますか？</span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <strong>2本指のピンチイン・ピンチアウト</strong>で拡大・縮小できます。<br>
+        <strong>1本指でドラッグ</strong>して文字位置を移動できます。<br><br>
+        <div class="note">💡 移動するときは先に<strong>消しゴム</strong>をタップしておくと線が描かれにくくなります。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-num">Q9</span>
+      <span class="faq-q-text">文字の大きさを変更できますか？</span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        はい、できます。画面下のスライダーをタッチすると「文字」と表示され、左右に動かすことで文字サイズを変更できます。<br>
+        タッチしない場合は線の太さ変更になります。
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-num">Q10</span>
+      <span class="faq-q-text">利用規約に同意しないと使えませんか？</span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        はい。同意しない場合はアプリは機能しません。
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-num">Q11</span>
+      <span class="faq-q-text">オフラインで使えますか？</span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        はい、使えます。ただし<strong>翻訳機能を初めて使うとき</strong>のみ、言語データのダウンロードが必要でオンライン環境が必要です。
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-num">Q12</span>
+      <span class="faq-q-text">ピンチ操作中に線が引かれてしまいます</span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        拡大縮小や文字移動を行うときは、先に<strong>消しゴムマーク</strong>をタップしてから操作してください。線が描かれにくくなり、スムーズに操作できます。
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-num">Q13</span>
+      <span class="faq-q-text">線が見えにくいのですが</span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        iPadの色反転や高コントラストなどの表示設定によっては線が見えにくいことがあります。<br>
+        <strong>設定 → アクセシビリティ → 画面表示とテキストサイズ</strong> で設定をOFFにしてお試しください。
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- English -->
+<div id="faq-en" class="container" style="display:none">
+
+  <div class="section-label">Basic Usage</div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-num">Q1</span>
+      <span class="faq-q-text">What can this app do?</span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Bridgy is a communication app that "bridges" conversations through face-to-face text display, handwriting, and translation.<br>
+        People who cannot hear, cannot speak, or face language barriers can communicate by placing one iPad/iPhone between them.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-num">Q2</span>
+      <span class="faq-q-text">How can I enter text?</span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        The following input methods are available:
+        <ul>
+          <li>Drawing with finger or Apple Pencil</li>
+          <li>Keyboard input</li>
+          <li>Apple Pencil Scribble (handwriting recognition)</li>
+          <li>Voice input (speech-to-text)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-num">Q3</span>
+      <span class="faq-q-text">The microphone is not working</span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Please check that Bridgy has microphone permission in <strong>Settings → Privacy & Security → Microphone</strong>.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Translation</div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-num">Q4</span>
+      <span class="faq-q-text">Translation is not working</span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        The first time you use translation, language data needs to be downloaded. Please connect to the internet and try again.<br><br>
+        <strong>Supported languages:</strong> Japanese, English, Spanish, French, Vietnamese, Italian (66 pairs)<br><br>
+        <h4>Translation Mode</h4>
+        <div class="step"><strong>Manual:</strong> Tap the →← button to translate</div>
+        <div class="step"><strong>Auto:</strong> Translates automatically when recording stops</div>
+        <h4>Language Settings</h4>
+        Tap the <strong>gear icon (Settings)</strong> to set your language and your partner's language.
+        <h4>Voice Input Steps</h4>
+        <div class="step">① Tap the microphone icon (it changes color)<br>② Tap again to stop → text appears on screen</div>
+        <h4>Keyboard Input Steps</h4>
+        <div class="step">① Tap "Add text (pen / keyboard)"<br>② Select who is typing (Me/Partner) and language<br>③ Tap the white area and type<br>④ Tap "Add"</div>
+        <div class="note">💡 Register common phrases in Settings → General → Keyboard → Text Replacement to type long phrases quickly!</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-num">Q5</span>
+      <span class="faq-q-text">What is the difference between auto and manual translation?</span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <strong>Manual:</strong> Translates when you tap the →← button. Useful when you want to check the text before translating.<br><br>
+        <strong>Auto:</strong> Translates automatically after recording stops.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-num">Q6</span>
+      <span class="faq-q-text">Auto translation does not work the first time</span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        The first time only, language data needs to be downloaded. Please use the <strong>manual translation button</strong> for the first translation. Auto translation will work from the second time onwards.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Controls & Display</div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-num">Q7</span>
+      <span class="faq-q-text">What is the difference between the eraser and trash?</span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <strong>Eraser:</strong> Erases drawn lines only.<br>
+        <strong>Trash:</strong> Clears all lines and text.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-num">Q8</span>
+      <span class="faq-q-text">Can I resize or move text?</span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <strong>Pinch in/out with 2 fingers</strong> to resize text.<br>
+        <strong>Drag with 1 finger</strong> to move text.<br><br>
+        <div class="note">💡 Tap the <strong>eraser</strong> first before moving text to prevent accidental drawing.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-num">Q9</span>
+      <span class="faq-q-text">Can I change the text size?</span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Yes. Touch the slider at the bottom of the screen — it shows "Text" — and slide left or right to change the text size.<br>
+        Without touching, the slider controls line width.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-num">Q10</span>
+      <span class="faq-q-text">Do I have to agree to the terms of use?</span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Yes. The app will not function if you do not agree to the terms of use.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-num">Q11</span>
+      <span class="faq-q-text">Can I use the app offline?</span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Yes. However, the <strong>first time you use the translation feature</strong>, language data must be downloaded and an internet connection is required.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-num">Q12</span>
+      <span class="faq-q-text">Lines appear when I try to pinch or move text</span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Before pinching or moving text, tap the <strong>eraser icon</strong> first. This prevents accidental drawing and makes gestures smoother.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-num">Q13</span>
+      <span class="faq-q-text">Lines are hard to see</span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Display settings such as color inversion or high contrast may affect visibility.<br>
+        Please check <strong>Settings → Accessibility → Display & Text Size</strong> and turn off any inversion or contrast settings.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>Bridgy &copy; 2026 Akio Nishiyama</p>
+  <p style="margin-top:6px"><a href="mailto:bridgy_support@icloud.com">bridgy_support@icloud.com</a></p>
+</footer>
+
+<script>
+function toggle(el) {
+  const item = el.closest('.faq-item');
+  item.classList.toggle('open');
+}
+
+function showLang(lang) {
+  document.getElementById('faq-ja').style.display = lang === 'ja' ? 'block' : 'none';
+  document.getElementById('faq-en').style.display = lang === 'en' ? 'block' : 'none';
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
