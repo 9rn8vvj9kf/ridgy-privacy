@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bridgy Support / サポート</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --accent: #2563eb;
+      --warn: #b91c1c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+    }
+    h1, h2, h3 {
+      line-height: 1.35;
+      margin-top: 0;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: 1.35rem;
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--line);
+    }
+    h3 {
+      font-size: 1.05rem;
+      margin-top: 1.2rem;
+      margin-bottom: 0.4rem;
+    }
+    p.lead {
+      color: var(--muted);
+      margin-top: 0;
+    }
+    ul {
+      padding-left: 1.2rem;
+      margin: 0.5rem 0 0;
+    }
+    li + li {
+      margin-top: 0.35rem;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+    .qa {
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fafafa;
+      margin-top: 12px;
+    }
+    .notice {
+      border-left: 6px solid var(--warn);
+      background: #fff7f7;
+    }
+    .small {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Bridgy Support / サポート</h1>
+      <p class="lead">Bridgy のサポートページです。お問い合わせ方法と、よくある質問、重要な注意事項を掲載しています。</p>
+    </div>
+
+    <section class="card">
+      <h2>お問い合わせ / Contact</h2>
+      <p><strong>Email:</strong> <a href="mailto:bridgy_support@icloud.com">bridgy_support@icloud.com</a></p>
+      <p class="small">できれば以下を添えてください / If possible, please include the following:</p>
+      <ul>
+        <li>iPad / iPhone の機種 / Device model</li>
+        <li>iPadOS / iOS のバージョン / iPadOS / iOS version</li>
+        <li>アプリのバージョン（Build番号）/ App version (Build)</li>
+        <li>何をしたら起きたか / Steps to reproduce</li>
+        <li>スクリーンショット（※個人情報が映らない範囲で）/ Screenshot (without personal data)</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>よくある質問 / FAQ</h2>
+
+      <div class="qa">
+        <h3>Q. 指でも使えますか？ / Can I use it with my finger?</h3>
+        <p>A. はい。Apple Pencil がなくても指で手書きできます。<br>
+        A. Yes. You can write with your finger without Apple Pencil.</p>
+      </div>
+
+      <div class="qa">
+        <h3>Q. 翻訳が使えません / Translation doesn’t work</h3>
+        <p>A. 初回のみ言語データのダウンロードが必要です。最初の1回だけオンライン環境でお試しください。<br>
+        A. The first time requires a one-time language download. Please try once while online.</p>
+      </div>
+    </section>
+
+    <section class="card notice">
+      <h2>重要な注意 / Important Notice</h2>
+      <ul>
+        <li>医療・救急・法律・金融など高リスク用途には使用しないでください。<br>
+        Do not use for high-risk applications such as medical, emergency, legal, or financial purposes.</li>
+        <li>個人情報（氏名・住所・生年月日・口座番号・パスワード等）は表示しないでください。<br>
+        Do not display personal information (name, address, date of birth, account number, password, etc.).</li>
+        <li>機微情報が表示されている状態でのスクリーンショット / 画面録画 / 撮影 / 共有は禁止です。<br>
+        Do not take screenshots, record the screen, take photos, or share sensitive information when it is displayed.</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

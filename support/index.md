@@ -1,11 +1,11 @@
 # Bridgy Support / サポート
 
 ## お問い合わせ / Contact
-- Email: 9rn8vvj9kf@privaterelay.appleid.com
+- Email: bridgy_support@icloud.com
 
 できれば以下を添えてください/If possible, please include the following:
-- iPadの機種 / Device model
-- iPadOSのバージョン / iPadOS version
+- iPad iphoneの機種 / Device model
+- iPadOS iosのバージョン / iPadOS ios version
 - アプリのバージョン（Build番号）/ App version (Build)
 - 何をしたら起きたか / Steps to reproduce
 - スクリーンショット（※個人情報が映らない範囲で）/ Screenshot (without personal data)
