@@ -109,6 +109,28 @@
       padding: 12px 14px;
       margin: 12px 0;
     }
+
+    .feature-block {
+      margin: 14px 0;
+    }
+    .feature-block .feature-title {
+      display: inline-block;
+      border-left: 5px solid var(--accent);
+      padding-left: 10px;
+      font-weight: 700;
+      color: #1d4ed8;
+      margin-bottom: 4px;
+    }
+    .feature-block p {
+      margin: 4px 0 0 0;
+    }
+    .feature-block ul {
+      margin: 4px 0 0;
+      padding-left: 1.35rem;
+    }
+    .feature-block li {
+      margin: 5px 0;
+    }
     .small { color: var(--muted); font-size: 0.95rem; }
     footer {
       max-width: 980px;
@@ -208,15 +230,41 @@
     <section id="q5">
       <h2>Q5. 音声入力の使い方は？</h2>
       <p><span class="answer-label">A5</span>マイクボタンを使って、音声入力を開始・停止できます。</p>
-      <ul>
-        <li><strong>マイクマーク</strong> をタップすると、音声入力を開始します。</li>
-        <li>もう一度 <strong>マイクマーク</strong> をタップすると、会話の聞き取りを停止します。</li>
-        <li>聞き取り中は、「自分」または「相手」のどちらの言語を聞き取っているかが表示されます。</li>
-        <li>会話中は、認識途中の文字が薄い色で表示されます。</li>
-        <li>約2.5秒の無音を検知すると、会話終了と判断して濃い文字で確定表示されます。</li>
-        <li>薄い文字が表示されている間に誤認識があった場合は、<strong>マイクマークを長押し</strong> すると直前の認識結果を取り消せます。</li>
-        <li><strong>マイクマークをダブルタップ</strong> すると、聞き取り対象を「自分」から「相手」へ、または「相手」から「自分」へ切り替えます。</li>
-      </ul>
+
+      <div class="feature-block">
+        <span class="feature-title">音声入力の開始と停止</span>
+        <ul>
+          <li>マイクボタンをタップすると、音声入力を開始します。会話を完全に終了する時は、もう一度マイクボタンをタップしてください。</li>
+        </ul>
+      </div>
+
+      <div class="feature-block">
+        <span class="feature-title">マイク入力中の言語表示</span>
+        <ul>
+          <li>聞き取り中は、画面に「自分」または「相手」のどちらの言語を聞き取っているかが表示されます。</li>
+        </ul>
+      </div>
+
+      <div class="feature-block">
+        <span class="feature-title">認識途中の文字表示</span>
+        <ul>
+          <li>会話中は、認識途中の文字が薄い色で表示されます。約2.5秒の無音を検知すると、会話終了と判断して濃い文字で確定表示されます。</li>
+        </ul>
+      </div>
+
+      <div class="feature-block">
+        <span class="feature-title">誤変換文字の取り消し</span>
+        <ul>
+          <li>薄い文字が表示されている間に誤認識があった場合は、マイクボタンを長押しすると認識結果を取り消せます。これにより、ミスした会話内容が相手に伝わるのを防げます。</li>
+        </ul>
+      </div>
+
+      <div class="feature-block">
+        <span class="feature-title">マイクの聞き取り対象者変更</span>
+        <ul>
+          <li>マイクボタンをダブルタップすると、聞き取り対象を「自分」から「相手」へ、または「相手」から「自分」へ切り替えます。</li>
+        </ul>
+      </div>
 
       <h3>キーボード入力</h3>
       <ul>
