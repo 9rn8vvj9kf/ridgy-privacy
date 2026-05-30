@@ -1,210 +1,360 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bridgy FAQ (English)</title>
+  <meta name="description" content="Bridgy FAQ in English. Covers text display, handwriting, voice recognition, translation, text-to-speech, and offline use.">
   <style>
     :root {
       --bg: #f7f8fb;
       --card: #ffffff;
       --text: #1f2937;
-      --muted: #4b5563;
+      --muted: #5f6b7a;
+      --line: #d9dee8;
       --accent: #2563eb;
-      --border: #dbe3f0;
+      --accent-soft: #eaf1ff;
     }
+    html { scroll-behavior: smooth; }
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      line-height: 1.75;
       color: var(--text);
-      line-height: 1.7;
+      background: var(--bg);
     }
-    .wrap {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 24px 16px 48px;
+    header {
+      background: linear-gradient(135deg, #1d4ed8, #38bdf8);
+      color: #fff;
+      padding: 40px 20px 34px;
+      text-align: center;
     }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 28px 22px;
-      box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
-    }
-    h1 {
+    header h1 {
       margin: 0 0 8px;
-      font-size: 2rem;
-      line-height: 1.3;
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      line-height: 1.25;
     }
-    .lead {
-      margin: 0 0 24px;
-      color: var(--muted);
+    header p {
+      margin: 0;
+      opacity: 0.95;
       font-size: 1rem;
     }
-    h2 {
-      margin-top: 32px;
-      padding-top: 12px;
-      border-top: 1px solid var(--border);
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 22px 16px 48px;
+    }
+    .notice, .toc, section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+    .notice {
+      padding: 16px 18px;
+      margin-bottom: 18px;
+      border-left: 6px solid var(--accent);
+    }
+    .notice p { margin: 0; }
+    .toc {
+      padding: 18px 20px;
+      margin-bottom: 20px;
+    }
+    .toc h2 {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+    }
+    .toc ol {
+      margin: 0;
+      padding-left: 1.4rem;
+      columns: 2;
+      column-gap: 34px;
+    }
+    .toc a { color: var(--accent); text-decoration: none; }
+    .toc a:hover { text-decoration: underline; }
+    section {
+      padding: 22px 22px;
+      margin: 18px 0;
+    }
+    section h2 {
+      margin: 0 0 12px;
       font-size: 1.35rem;
+      line-height: 1.45;
+      color: #0f172a;
     }
     h3 {
-      margin-top: 24px;
+      margin: 22px 0 8px;
       font-size: 1.08rem;
-      color: var(--accent);
+      border-left: 5px solid var(--accent);
+      padding-left: 10px;
     }
-    p { margin: 10px 0; }
-    ul {
-      margin: 8px 0 16px 1.25rem;
-      padding: 0;
-    }
-    li { margin: 6px 0; }
-    strong { font-weight: 700; }
-    .answer {
-      background: #f8fbff;
-      border-left: 4px solid var(--accent);
-      padding: 12px 14px;
-      border-radius: 10px;
-      margin: 12px 0 14px;
+    p { margin: 0 0 12px; }
+    ul { margin: 8px 0 12px; padding-left: 1.35rem; }
+    li { margin: 5px 0; }
+    strong { color: #111827; }
+    .answer-label {
+      display: inline-block;
+      padding: 2px 8px;
+      margin-right: 4px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #1d4ed8;
+      font-weight: 700;
+      font-size: 0.92rem;
     }
     .note {
-      background: #fff8e8;
-      border: 1px solid #f3ddb0;
-      border-radius: 10px;
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-radius: 12px;
       padding: 12px 14px;
       margin: 12px 0;
     }
-    code {
-      background: #eef2ff;
-      padding: 0.1em 0.35em;
-      border-radius: 6px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 0.95em;
+    .feature-block {
+      margin: 14px 0;
+    }
+    .feature-block .feature-title {
+      display: inline-block;
+      border-left: 5px solid var(--accent);
+      padding-left: 10px;
+      font-weight: 700;
+      color: #1d4ed8;
+      margin-bottom: 4px;
+    }
+    .feature-block p {
+      margin: 4px 0 0 0;
+    }
+    .feature-block ul {
+      margin: 4px 0 0;
+      padding-left: 1.35rem;
+    }
+    .feature-block li {
+      margin: 5px 0;
+    }
+    .small { color: var(--muted); font-size: 0.95rem; }
+    footer {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 16px 34px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.92rem;
+    }
+    @media (max-width: 720px) {
+      .toc ol { columns: 1; }
+      section { padding: 18px 16px; }
+      header { padding: 32px 16px 26px; }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card">
-      <h1>Bridgy FAQ (English)</h1>
-      <p class="lead">Frequently asked questions and basic usage notes for Bridgy.</p>
+  <header>
+    <h1>Bridgy FAQ (English)</h1>
+    <p>A communication support tool for face-to-face text display, handwriting, voice recognition, and translation</p>
+  </header>
 
-      <h2>Q1. What can this app do?</h2>
-      <div class="answer"><strong>A1.</strong> Bridgy is an app that helps “bridge” face-to-face communication through on-screen text display, writing/drawing, and translation.</div>
-
-      <h2>Q2. What input methods are available?</h2>
-      <div class="answer"><strong>A2.</strong> You can use the following input methods.</div>
-      <ul>
-        <li>Line drawing (finger / Apple Pencil)</li>
-        <li>Voice input (speech to text)</li>
-        <li>Keyboard input</li>
-        <li>Apple Pencil Scribble (handwriting input)</li>
-      </ul>
-
-      <h2>Q3. The microphone does not work.</h2>
-      <div class="answer"><strong>A3.</strong> Please check microphone permission in <strong>iPad Settings → Privacy &amp; Security → Microphone</strong>.</div>
-
-      <h2>Q4. Translation does not work. Please explain in detail.</h2>
-      <div class="answer"><strong>A4.</strong> The first time only, language data must be downloaded and prepared. Please connect to the internet and try again.</div>
-      <p><strong>Supported languages:</strong> English / Spanish / French / Japanese / Vietnamese / Italian</p>
-      <p><strong>Translation pairs:</strong> 36 pairs (for example: English↔English, English↔Spanish, English↔French, English↔Japanese, English↔Vietnamese, English↔Italian)</p>
-
-      <h3>1) Translation mode settings</h3>
-      <p><strong>Manual translation (confirm that the recognized text is correct before translating)</strong></p>
-      <ul>
-        <li>Tap the <strong>arrow mark →</strong> to the right of the microphone</li>
-        <li>The translation will be shown in the other person’s language</li>
-      </ul>
-      <p><strong>Automatic translation after recording stops (translates without checking whether the recognized text is correct)</strong></p>
-      <ul>
-        <li>After recording stops, the text is automatically translated into the other person’s language</li>
-      </ul>
-
-      <h3>Language settings</h3>
-      <ul>
-        <li>Tap the <strong>gear icon (Settings)</strong> and set the language for “Self” and “Partner”</li>
-        <li><strong>Language selection</strong>
-          <ul>
-            <li>Select your spoken language</li>
-            <li>Select the other person’s spoken language</li>
-          </ul>
-        </li>
-      </ul>
-
-      <h3>Who is speaking? (voice input)</h3>
-      <ul>
-        <li><strong>When you speak:</strong> Tap <strong>Self</strong> next to the microphone → your speech is translated into the other person’s language and shown on their side</li>
-        <li><strong>When the other person speaks:</strong> Tap <strong>Partner</strong> next to the microphone → their speech is translated into your language and shown on your side</li>
-      </ul>
-
-      <h3>2) Voice input</h3>
-      <ul>
-        <li>Tap the <strong>microphone icon</strong> (the microphone color changes)</li>
-        <li>Tap the <strong>microphone icon</strong> again to stop → the spoken words are converted to text, shown on screen, and translated</li>
-      </ul>
-
-      <h3>3) Keyboard input</h3>
-      <ul>
-        <li>Tap <strong>“Enter Text (Pen / Keyboard)”</strong> in the bottom menu → a new window opens</li>
-        <li>Select who is entering the text: <strong>Self / Partner</strong></li>
-        <li>Select your language / the partner’s language</li>
-        <li>Tap the white area → the keyboard appears</li>
-        <li>Enter text from the keyboard and tap <strong>Add</strong> → text appears on screen in the selected language (and is translated according to the translation mode)</li>
-      </ul>
-      <div class="note"><strong>Important:</strong> It is convenient to register fixed phrases in <strong>User Dictionary (Text Replacement)</strong>. A short trigger word can display a long sentence at once.<br>Example: “Nice to meet you. My name is ○○. Thank you.”<br>Setting path: <strong>Settings → General → Keyboard → Text Replacement</strong></div>
-
-      <h3>4) Apple Pencil input (Scribble) — this feature does not work on iPhone</h3>
-      <ul>
-        <li>iPad settings: <strong>Settings → Apple Pencil</strong>
-          <ul>
-            <li><strong>Only Draw with Apple Pencil</strong>: <strong>OFF</strong></li>
-            <li><strong>Scribble</strong>: <strong>ON</strong></li>
-          </ul>
-        </li>
-        <li>Tap <strong>“Enter Text (Pen / Keyboard)”</strong> in the bottom menu → a new window opens</li>
-        <li>Select who is entering the text: <strong>Self / Partner</strong></li>
-        <li>Select your language / the partner’s language</li>
-        <li>Write in the white area with Apple Pencil → tap <strong>Add</strong> → the text appears on screen and is translated according to the translation mode</li>
-      </ul>
-
-      <h3>5) Voice output</h3>
-      <ul>
-        <li>Tap the speaker icon in the bottom menu to have the translated text read aloud</li>
-      </ul>
-
-      <h2>Q6. Automatic translation does not work the first time only.</h2>
-      <div class="answer"><strong>A6.</strong> The first time only, language data must be downloaded and prepared. For the very first translation, please use the <strong>manual translate button</strong>. Automatic translation will work from the second time onward.</div>
-
-      <h2>Q7. What is the difference between the eraser and the trash can?</h2>
-      <div class="answer"><strong>A7.</strong></div>
-      <ul>
-        <li><strong>Eraser:</strong> Erases drawn lines</li>
-        <li><strong>Trash can:</strong> Clears both lines and text</li>
-      </ul>
-
-      <h2>Q8. Can I enlarge, reduce, or move displayed text?</h2>
-      <div class="answer"><strong>A8.</strong></div>
-      <ul>
-        <li>You can zoom in and out with a <strong>two-finger pinch</strong></li>
-        <li>You can move the text position by <strong>dragging with one finger</strong><br>To reduce accidental drawing while moving text, tap the <strong>eraser</strong> first</li>
-      </ul>
-
-      <h2>Q9. Can I change the text size and line thickness?</h2>
-      <div class="answer"><strong>A9.</strong> Yes. You can change the text size by moving the slider at the bottom of the screen left or right. Tapping the slider switches it to line thickness adjustment.</div>
-
-      <h2>Q10. Do I have to agree to the Terms of Use?</h2>
-      <div class="answer"><strong>A10.</strong> Yes. If you do not agree, the app will not function.</div>
-
-      <h2>Q11. Can I use it offline?</h2>
-      <div class="answer"><strong>A11.</strong> Yes. However, the first time you use the <strong>translation feature</strong>, the required language data must be downloaded, so an online connection is necessary.</div>
-
-      <h2>Q12. Pinch gestures and moving text do not work well, and lines are drawn by mistake. Why?</h2>
-      <div class="answer"><strong>A12.</strong> Because this app allows line drawing with a finger, the moment your finger first touches the screen may be recognized as drawing, and a line may appear. When zooming or moving text, tap the <strong>eraser icon</strong> first, then perform the gesture. This makes accidental lines less likely and helps zooming and text movement work more smoothly.</div>
-
-      <h2>Q13. The lines are hard to see.</h2>
-      <div class="answer"><strong>A13.</strong> Depending on iPad display settings such as Smart Invert, Classic Invert, or increased contrast, lines may become hard to see. Please try turning those settings off.<br>Setting path: <strong>Settings → Accessibility → Display &amp; Text Size → (Invert / Contrast)</strong></div>
+  <main>
+    <div class="notice">
+      <p><strong>Bridgy</strong> is an app designed to help two people have a face-to-face conversation by placing a single iPad or iPhone between them.</p>
     </div>
-  </div>
+
+    <nav class="toc" aria-label="FAQ Table of Contents">
+      <h2>Table of Contents</h2>
+      <ol>
+        <li><a href="#q1">What can this app do?</a></li>
+        <li><a href="#q2">How do I enter text?</a></li>
+        <li><a href="#q3">The microphone is not working</a></li>
+        <li><a href="#q4">Translation is not working</a></li>
+        <li><a href="#q5">How do I use voice input?</a></li>
+        <li><a href="#q6">Auto-translation does not work the first time</a></li>
+        <li><a href="#q7">What is the difference between the eraser and the trash?</a></li>
+        <li><a href="#q8">Can I zoom in, zoom out, or move the text?</a></li>
+        <li><a href="#q9">Can I change the text size or line thickness?</a></li>
+        <li><a href="#q10">Do I have to agree to the terms of use?</a></li>
+        <li><a href="#q11">Can I use the app offline?</a></li>
+        <li><a href="#q12">Lines appear when I try to pinch or move text</a></li>
+        <li><a href="#q13">The lines are hard to see</a></li>
+      </ol>
+    </nav>
+
+    <section id="q1">
+      <h2>Q1. What can this app do?</h2>
+      <p><span class="answer-label">A1</span>Bridgy is an app that acts as a "bridge" for conversation through face-to-face text display, handwriting, voice recognition, and translation.</p>
+      <p>It can be used in a wide range of situations — traveling abroad, talking with foreign visitors, language learning, communicating with elderly people, or conversing with those who have difficulty hearing or speaking.</p>
+    </section>
+
+    <section id="q2">
+      <h2>Q2. How do I enter text?</h2>
+      <p><span class="answer-label">A2</span>The following input methods are available.</p>
+      <ul>
+        <li>Freehand drawing (finger / Apple Pencil)</li>
+        <li>Voice input (speech-to-text transcription)</li>
+        <li>Keyboard input</li>
+        <li>Apple Pencil Scribble (handwriting recognition)</li>
+      </ul>
+    </section>
+
+    <section id="q3">
+      <h2>Q3. The microphone is not working</h2>
+      <p><span class="answer-label">A3</span>On your iPad or iPhone, go to <strong>Settings → Privacy &amp; Security → Microphone</strong> and make sure Bridgy is allowed to use the microphone.</p>
+      <p>If voice recognition is also unavailable, please also check <strong>Settings → Privacy &amp; Security → Speech Recognition</strong>.</p>
+    </section>
+
+    <section id="q4">
+      <h2>Q4. Translation is not working. Can you explain in detail?</h2>
+      <p><span class="answer-label">A4</span>The first time you use translation, language data must be downloaded or prepared. Please connect to the internet and try again.</p>
+      <p><strong>Supported languages:</strong> Japanese / English / French / Spanish / Italian / Vietnamese</p>
+      <p><strong>Translation pairs:</strong> 36 pairs</p>
+      <p class="small">Examples: Japanese↔English, English↔French, English↔Spanish, English↔Italian, English↔Vietnamese, and more.</p>
+
+      <h3>Translation Mode Settings</h3>
+      <ul>
+        <li><strong>Manual translation:</strong> You can review the transcribed text before translating. Tap the <strong>arrow button (→)</strong> to the right of the microphone.</li>
+        <li><strong>Auto-translate after recording stops:</strong> Translation into the other person's language happens automatically after recording ends.</li>
+        <li><strong>Auto-translate and read aloud after recording stops:</strong> After recording ends, the text is automatically translated and then read aloud in the other person's language.</li>
+      </ul>
+
+      <h3>Language Settings</h3>
+      <ul>
+        <li>Tap the <strong>gear icon (Settings)</strong> to set the language for "Me" and "Other Person."</li>
+        <li>Specify the language you speak and the language the other person speaks.</li>
+      </ul>
+
+      <h3>Speaker Selection for Voice Input</h3>
+      <ul>
+        <li><strong>When you speak:</strong> Tap <strong>Me</strong> next to the microphone button. Your language is recognized and displayed translated into the other person's language.</li>
+        <li><strong>When the other person speaks:</strong> Tap <strong>Other Person</strong> next to the microphone button. Their language is recognized and displayed translated into your language.</li>
+      </ul>
+    </section>
+
+    <section id="q5">
+      <h2>Q5. How do I use voice input?</h2>
+      <p><span class="answer-label">A5</span>Use the microphone button to start and stop voice input.</p>
+
+      <div class="feature-block">
+        <span class="feature-title">Starting and Stopping Voice Input</span>
+        <ul>
+          <li>Tap the microphone button to start voice input. Tap it again when you have completely finished speaking.</li>
+        </ul>
+      </div>
+
+      <div class="feature-block">
+        <span class="feature-title">Language Display During Recording</span>
+        <ul>
+          <li>While listening, the screen displays which language is being recognized — "Me" or "Partner."</li>
+        </ul>
+      </div>
+
+      <div class="feature-block">
+        <span class="feature-title">Interim Text Display</span>
+        <ul>
+          <li>While speaking, partially recognized text appears in a lighter color. After approximately 2.5 seconds of silence, the app determines speech has ended and confirms the text in a darker color.</li>
+        </ul>
+      </div>
+
+      <div class="feature-block">
+        <span class="feature-title">Canceling Misrecognized Text</span>
+        <ul>
+          <li>If there is a misrecognition while the text is still displayed in light color, long-press the microphone button to cancel the recognition result. This prevents incorrect speech from being shown to the other person.</li>
+        </ul>
+      </div>
+
+      <div class="feature-block">
+        <span class="feature-title">Switching the Microphone Target</span>
+        <ul>
+          <li>Double-tap the microphone button to switch the listening target from "Me" to "Partner," or from "Partner" to "Me."</li>
+        </ul>
+      </div>
+
+      <h3>Keyboard Input</h3>
+      <ul>
+        <li>Tap <strong>"Enter Text (Pen / Keyboard)"</strong> in the bottom menu to open a new window.</li>
+        <li>Select who is entering text: <strong>Me / Other Person</strong>.</li>
+        <li>Choose your language or the other person's language.</li>
+        <li>Tap the white area to bring up the keyboard.</li>
+        <li>Type your text and tap <strong>Add</strong> to display it on screen in the selected language. Translation will also occur according to the current translation mode.</li>
+      </ul>
+      <div class="note">
+        <p><strong>Tip:</strong> Registering frequently used phrases in the <strong>User Dictionary (Text Replacement)</strong> is very convenient. You can display long phrases by typing a short abbreviation.</p>
+        <p class="small">Where to find it: <strong>Settings → General → Keyboard → Text Replacement</strong></p>
+      </div>
+
+      <h3>Apple Pencil Input (Scribble)</h3>
+      <p class="small">This feature is available on iPad only. It is not available on iPhone.</p>
+      <ul>
+        <li>Open <strong>Settings → Apple Pencil</strong> on your iPad.</li>
+        <li>Turn <strong>Apple Pencil Only</strong> OFF.</li>
+        <li>Turn <strong>Scribble</strong> ON.</li>
+        <li>Tap <strong>"Enter Text (Pen / Keyboard)"</strong> in the bottom menu.</li>
+        <li>Select who is entering text: <strong>Me / Other Person</strong>.</li>
+        <li>Write text in the white area using Apple Pencil, then tap <strong>Add</strong>.</li>
+      </ul>
+
+      <h3>Audio Output</h3>
+      <ul>
+        <li>Tap the <strong>speaker icon</strong> in the bottom menu to read the translated text aloud.</li>
+      </ul>
+    </section>
+
+    <section id="q6">
+      <h2>Q6. Auto-translation does not work the first time</h2>
+      <p><span class="answer-label">A6</span>Language data must be downloaded or prepared the first time. Please use the <strong>manual translation button</strong> for the very first translation. Auto-translation will work from the second time onward.</p>
+    </section>
+
+    <section id="q7">
+      <h2>Q7. What is the difference between the eraser and the trash?</h2>
+      <p><span class="answer-label">A7</span>Their roles are as follows.</p>
+      <ul>
+        <li><strong>Eraser:</strong> Erases freehand drawn lines.</li>
+        <li><strong>Trash:</strong> Clears all lines and text at once.</li>
+      </ul>
+    </section>
+
+    <section id="q8">
+      <h2>Q8. Can I zoom in, zoom out, or move the text on screen?</h2>
+      <p><span class="answer-label">A8</span>Yes, you can.</p>
+      <ul>
+        <li>Use a <strong>two-finger pinch in / pinch out</strong> gesture to zoom in or out.</li>
+        <li><strong>Drag with one finger</strong> to move the text position.</li>
+      </ul>
+      <p class="small">When moving text, tap the <strong>eraser</strong> first to avoid accidentally drawing lines.</p>
+    </section>
+
+    <section id="q9">
+      <h2>Q9. Can I change the text size or line thickness displayed on screen?</h2>
+      <p><span class="answer-label">A9</span>Yes, you can.</p>
+      <ul>
+        <li>Slide the slider at the bottom of the screen left or right to change the text size.</li>
+        <li>Tap the slider to switch to line thickness adjustment.</li>
+      </ul>
+    </section>
+
+    <section id="q10">
+      <h2>Q10. Do I have to agree to the terms of use?</h2>
+      <p><span class="answer-label">A10</span>Yes. If you do not agree, the app cannot be used.</p>
+    </section>
+
+    <section id="q11">
+      <h2>Q11. Can I use the app offline?</h2>
+      <p><span class="answer-label">A11</span>Yes, you can. However, the first time you use the translation feature, an internet connection is required to download the necessary language data.</p>
+      <p>Once the language data has been prepared, the corresponding translations can be used offline.</p>
+    </section>
+
+    <section id="q12">
+      <h2>Q12. Lines appear when I try to pinch or move text. Why does this happen?</h2>
+      <p><span class="answer-label">A12</span>Because Bridgy allows freehand drawing with your finger, the moment your finger touches the screen may be recognized as a "draw" action, causing lines to appear.</p>
+      <p>When zooming or moving text, tap the <strong>eraser icon</strong> first before performing the gesture. This makes it less likely that lines will be drawn, and zoom and move operations will work more smoothly.</p>
+    </section>
+
+    <section id="q13">
+      <h2>Q13. The lines are hard to see</h2>
+      <p><span class="answer-label">A13</span>Display settings on your iPad or iPhone such as Smart Invert, Classic Invert, or high contrast modes may make lines difficult to see. Please try turning these settings OFF.</p>
+      <p>Where to find them: <strong>Settings → Accessibility → Display &amp; Text Size → Invert Colors / Increase Contrast</strong></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© Bridgy. This FAQ is provided for app support.</p>
+  </footer>
 </body>
 </html>
