@@ -1,210 +1,312 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bridgy FAQ（日本語）</title>
+  <meta name="description" content="Bridgyの日本語FAQ。文字表示、筆談、音声認識、翻訳、音声読み上げ、オフライン利用について説明します。">
   <style>
     :root {
       --bg: #f7f8fb;
       --card: #ffffff;
       --text: #1f2937;
-      --muted: #4b5563;
+      --muted: #5f6b7a;
+      --line: #d9dee8;
       --accent: #2563eb;
-      --border: #dbe3f0;
+      --accent-soft: #eaf1ff;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
-      background: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      line-height: 1.75;
       color: var(--text);
-      line-height: 1.7;
+      background: var(--bg);
     }
-    .wrap {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 24px 16px 48px;
+    header {
+      background: linear-gradient(135deg, #1d4ed8, #38bdf8);
+      color: #fff;
+      padding: 40px 20px 34px;
+      text-align: center;
     }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 28px 22px;
-      box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
-    }
-    h1 {
+    header h1 {
       margin: 0 0 8px;
-      font-size: 2rem;
-      line-height: 1.3;
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      line-height: 1.25;
     }
-    .lead {
-      margin: 0 0 24px;
-      color: var(--muted);
+    header p {
+      margin: 0;
+      opacity: 0.95;
       font-size: 1rem;
     }
-    h2 {
-      margin-top: 32px;
-      padding-top: 12px;
-      border-top: 1px solid var(--border);
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 22px 16px 48px;
+    }
+    .notice, .toc, section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+    .notice {
+      padding: 16px 18px;
+      margin-bottom: 18px;
+      border-left: 6px solid var(--accent);
+    }
+    .notice p { margin: 0; }
+    .toc {
+      padding: 18px 20px;
+      margin-bottom: 20px;
+    }
+    .toc h2 {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+    }
+    .toc ol {
+      margin: 0;
+      padding-left: 1.4rem;
+      columns: 2;
+      column-gap: 34px;
+    }
+    .toc a { color: var(--accent); text-decoration: none; }
+    .toc a:hover { text-decoration: underline; }
+    section {
+      padding: 22px 22px;
+      margin: 18px 0;
+    }
+    section h2 {
+      margin: 0 0 12px;
       font-size: 1.35rem;
+      line-height: 1.45;
+      color: #0f172a;
     }
     h3 {
-      margin-top: 24px;
+      margin: 22px 0 8px;
       font-size: 1.08rem;
-      color: var(--accent);
+      border-left: 5px solid var(--accent);
+      padding-left: 10px;
     }
-    p { margin: 10px 0; }
-    ul {
-      margin: 8px 0 16px 1.25rem;
-      padding: 0;
-    }
-    li { margin: 6px 0; }
-    strong { font-weight: 700; }
-    .answer {
-      background: #f8fbff;
-      border-left: 4px solid var(--accent);
-      padding: 12px 14px;
-      border-radius: 10px;
-      margin: 12px 0 14px;
+    p { margin: 0 0 12px; }
+    ul { margin: 8px 0 12px; padding-left: 1.35rem; }
+    li { margin: 5px 0; }
+    strong { color: #111827; }
+    .answer-label {
+      display: inline-block;
+      padding: 2px 8px;
+      margin-right: 4px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #1d4ed8;
+      font-weight: 700;
+      font-size: 0.92rem;
     }
     .note {
-      background: #fff8e8;
-      border: 1px solid #f3ddb0;
-      border-radius: 10px;
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-radius: 12px;
       padding: 12px 14px;
       margin: 12px 0;
     }
-    code {
-      background: #eef2ff;
-      padding: 0.1em 0.35em;
-      border-radius: 6px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 0.95em;
+    .small { color: var(--muted); font-size: 0.95rem; }
+    footer {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 16px 34px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.92rem;
+    }
+    @media (max-width: 720px) {
+      .toc ol { columns: 1; }
+      section { padding: 18px 16px; }
+      header { padding: 32px 16px 26px; }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card">
-      <h1>Bridgy FAQ（日本語）</h1>
-      <p class="lead">Bridgy の使い方や、よくある質問をまとめています。</p>
+  <header>
+    <h1>Bridgy FAQ（日本語）</h1>
+    <p>対面での文字表示・筆談・音声認識・翻訳を支援する会話支援ツール</p>
+  </header>
 
+  <main>
+    <div class="notice">
+      <p><strong>Bridgy</strong> は、1台のiPadまたはiPhoneを間に置いて、向かい合って会話しやすくするためのアプリです。</p>
+    </div>
+
+    <nav class="toc" aria-label="FAQ目次">
+      <h2>目次</h2>
+      <ol>
+        <li><a href="#q1">このアプリは何ができますか？</a></li>
+        <li><a href="#q2">文字入力方法は？</a></li>
+        <li><a href="#q3">マイクが動きません</a></li>
+        <li><a href="#q4">翻訳機能が使えません</a></li>
+        <li><a href="#q5">音声入力の使い方は？</a></li>
+        <li><a href="#q6">自動翻訳が初回だけ動きません</a></li>
+        <li><a href="#q7">消しゴムとゴミ箱の違いは？</a></li>
+        <li><a href="#q8">文字表示を拡大・縮小・移動できますか？</a></li>
+        <li><a href="#q9">文字の大きさ・線の太さを変更できますか？</a></li>
+        <li><a href="#q10">利用規約に同意しないと使えませんか？</a></li>
+        <li><a href="#q11">オフラインで使えますか？</a></li>
+        <li><a href="#q12">ピンチ操作や文字移動で線が引かれる時は？</a></li>
+        <li><a href="#q13">線が見えにくい時は？</a></li>
+      </ol>
+    </nav>
+
+    <section id="q1">
       <h2>Q1. このアプリは何ができますか？</h2>
-      <div class="answer"><strong>A1.</strong> Bridgy は、対面での文字表示・筆談・翻訳を通じて会話を「橋渡し」するアプリです。</div>
+      <p><span class="answer-label">A1</span>Bridgyは、対面での文字表示・筆談・音声認識・翻訳を通じて、会話を「橋渡し」するアプリです。</p>
+      <p>海外旅行、外国人との会話、語学学習、高齢者とのコミュニケーション、耳が聞こえにくい方や言葉が出にくい方との会話など、さまざまな場面で利用できます。</p>
+    </section>
 
+    <section id="q2">
       <h2>Q2. 文字入力方法は？</h2>
-      <div class="answer"><strong>A2.</strong> 次の方法が使えます。</div>
+      <p><span class="answer-label">A2</span>次の方法が使えます。</p>
       <ul>
         <li>線描画（指／Apple Pencil）</li>
-        <li>音声入力（音声→文字起こし）</li>
+        <li>音声入力（音声を文字起こし）</li>
         <li>キーボード入力</li>
         <li>Apple Pencilのスクリブル（手書き文字入力）</li>
       </ul>
+    </section>
 
+    <section id="q3">
       <h2>Q3. マイクが動きません</h2>
-      <div class="answer"><strong>A3.</strong> iPadの <strong>設定 → プライバシーとセキュリティ → マイク</strong> で許可を確認してください。</div>
+      <p><span class="answer-label">A3</span>iPadまたはiPhoneの <strong>設定 → プライバシーとセキュリティ → マイク</strong> で、Bridgyのマイク使用が許可されているか確認してください。</p>
+      <p>音声認識が使えない場合は、あわせて <strong>設定 → プライバシーとセキュリティ → 音声認識</strong> も確認してください。</p>
+    </section>
 
+    <section id="q4">
       <h2>Q4. 翻訳機能が使えません。詳しく説明してください</h2>
-      <div class="answer"><strong>A4.</strong> 初回のみ、言語データのダウンロード／準備が必要です。ネットに接続して再度お試しください。</div>
-      <p><strong>対応言語：</strong> 英語／スペイン語／フランス語／日本語／ベトナム語／イタリア語</p>
-      <p><strong>翻訳ペア：</strong> 36ペア（例：英語↔英語、英語↔スペイン語、英語↔フランス語、英語↔日本語、英語↔ベトナム語、英語↔イタリア語）</p>
+      <p><span class="answer-label">A4</span>初回のみ、言語データのダウンロードまたは準備が必要です。インターネットに接続してから、もう一度お試しください。</p>
+      <p><strong>対応言語：</strong> 日本語／英語／フランス語／スペイン語／イタリア語／ベトナム語</p>
+      <p><strong>翻訳ペア：</strong> 36ペア</p>
+      <p class="small">例：日本語↔英語、英語↔フランス語、英語↔スペイン語、英語↔イタリア語、英語↔ベトナム語など。</p>
 
-      <h3>1) 翻訳モード設定</h3>
-      <p><strong>手動翻訳（画面の文字が正しく文字に変換されていることを確認し翻訳する）</strong></p>
+      <h3>翻訳モード設定</h3>
       <ul>
-        <li>マイク右の <strong>矢印マーク →</strong> をタップ</li>
-        <li>翻訳は相手の言語で表示されます</li>
-      </ul>
-      <p><strong>録音停止後に自動翻訳（画面入力文字が正しく表示されているかを確認せずに翻訳します）</strong></p>
-      <ul>
-        <li>録音停止後、相手の言語へ自動翻訳されます</li>
+        <li><strong>手動翻訳：</strong> 画面の文字が正しく変換されていることを確認してから翻訳できます。マイク右側の <strong>矢印マーク（→）</strong> をタップしてください。</li>
+        <li><strong>録音停止後に自動翻訳：</strong> 録音停止後、相手の言語へ自動翻訳されます。</li>
+        <li><strong>録音停止後に自動翻訳し、翻訳文を読み上げる：</strong> 録音停止後、相手の言語へ自動翻訳し、翻訳文を自動で読み上げます。</li>
       </ul>
 
       <h3>言語の設定</h3>
       <ul>
-        <li><strong>歯車（設定）</strong> をタップして「自分」と「相手」の言語をセットします</li>
-        <li><strong>言語選択</strong>
-          <ul>
-            <li>自分の話す言語を指定</li>
-            <li>相手の話す言語を指定</li>
-          </ul>
-        </li>
+        <li><strong>歯車（設定）</strong> をタップして、「自分」と「相手」の言語を設定します。</li>
+        <li>自分が話す言語と、相手が話す言語を指定してください。</li>
       </ul>
 
-      <h3>誰が話すか設定（音声入力）</h3>
+      <h3>誰が話すかの設定（音声入力）</h3>
       <ul>
-        <li><strong>自分が話す時：</strong> マイク右横の <strong>自分</strong> をタップ → 相手側に、相手の言語に翻訳して表示</li>
-        <li><strong>相手が話す時：</strong> マイク右横の <strong>相手</strong> をタップ → 相手の言語を翻訳して、自分の言語に表示</li>
+        <li><strong>自分が話す時：</strong> マイク右横の <strong>自分</strong> をタップします。自分の言語を認識し、相手の言語に翻訳して表示します。</li>
+        <li><strong>相手が話す時：</strong> マイク右横の <strong>相手</strong> をタップします。相手の言語を認識し、自分の言語に翻訳して表示します。</li>
       </ul>
+    </section>
 
-      <h3>2) 音声入力の場合</h3>
+    <section id="q5">
+      <h2>Q5. 音声入力の使い方は？</h2>
+      <p><span class="answer-label">A5</span>マイクボタンを使って、音声入力を開始・停止できます。</p>
       <ul>
-        <li><strong>マイクマーク</strong> をタップ（マイクの色が変わります）</li>
-        <li>もう一度 <strong>マイクマーク</strong> をタップして停止 → 話した言葉が文字になって画面に表示され翻訳されます</li>
+        <li><strong>マイクマーク</strong> をタップすると、音声入力を開始します。</li>
+        <li>もう一度 <strong>マイクマーク</strong> をタップすると、会話の聞き取りを停止します。</li>
+        <li>聞き取り中は、「自分」または「相手」のどちらの言語を聞き取っているかが表示されます。</li>
+        <li>会話中は、認識途中の文字が薄い色で表示されます。</li>
+        <li>約2.5秒の無音を検知すると、会話終了と判断して濃い文字で確定表示されます。</li>
+        <li>薄い文字が表示されている間に誤認識があった場合は、<strong>マイクマークを長押し</strong> すると直前の認識結果を取り消せます。</li>
+        <li><strong>マイクマークをダブルタップ</strong> すると、聞き取り対象を「自分」から「相手」へ、または「相手」から「自分」へ切り替えます。</li>
       </ul>
 
-      <h3>3) キーボード入力</h3>
+      <h3>キーボード入力</h3>
       <ul>
-        <li>画面下のメニュー <strong>「文字を入力（ペン／キーボード）」</strong> をタップ → 新しいウィンドウが開きます</li>
-        <li>今から入力するのは誰かを選ぶ：<strong>自分／相手</strong></li>
-        <li>自分の言語／相手の言語を選択</li>
-        <li>白い部分をタップ → キーボード表示</li>
-        <li>キーボードから文字を入力して <strong>追加</strong> をタップ → 選択した言語で画面に文字表示（翻訳モードに応じて翻訳されます）</li>
+        <li>画面下のメニュー <strong>「文字を入力（ペン／キーボード）」</strong> をタップすると、新しいウィンドウが開きます。</li>
+        <li>入力する人として <strong>自分／相手</strong> を選びます。</li>
+        <li>自分の言語／相手の言語を選択します。</li>
+        <li>白い部分をタップしてキーボードを表示します。</li>
+        <li>文字を入力して <strong>追加</strong> をタップすると、選択した言語で画面に文字が表示されます。翻訳モードに応じて翻訳も行われます。</li>
       </ul>
-      <div class="note"><strong>重要：</strong> 定型文は「ユーザー辞書（テキスト置換）」に登録しておくと便利です。短い単語入力で長文を一発表示できます。<br>例）「初めまして、私は○○です。よろしくお願いします」<br>設定場所：<strong>設定 → 一般 → キーボード → ユーザ辞書（テキスト置換）</strong></div>
+      <div class="note">
+        <p><strong>ヒント：</strong> 定型文は「ユーザー辞書（テキスト置換）」に登録しておくと便利です。短い単語入力で長文を表示できます。</p>
+        <p class="small">設定場所：<strong>設定 → 一般 → キーボード → ユーザ辞書（テキスト置換）</strong></p>
+      </div>
 
-      <h3>4) Apple Pencil入力（スクリブル）この機能はiphoneでは機能しません</h3>
+      <h3>Apple Pencil入力（スクリブル）</h3>
+      <p class="small">この機能はiPadで利用できます。iPhoneでは利用できません。</p>
       <ul>
-        <li>iPad設定：<strong>設定 → Apple Pencil</strong>
-          <ul>
-            <li>「Apple Pencilのみで描画」：<strong>OFF</strong></li>
-            <li>「スクリブル」：<strong>ON</strong></li>
-          </ul>
-        </li>
-        <li>画面下のメニュー <strong>「文字を入力（ペン／キーボード）」</strong> をタップ → 新しいウィンドウが開きます</li>
-        <li>入力するのは誰か：<strong>自分／相手</strong></li>
-        <li>自分の言語／相手の言語を選択</li>
-        <li>白いところに Apple Pencil で文字を書く → <strong>追加</strong> をタップ → 文字が画面に表示され、翻訳モードに従って翻訳されます</li>
+        <li>iPadの <strong>設定 → Apple Pencil</strong> を開きます。</li>
+        <li><strong>Apple Pencilのみで描画</strong> をOFFにします。</li>
+        <li><strong>スクリブル</strong> をONにします。</li>
+        <li>画面下のメニュー <strong>「文字を入力（ペン／キーボード）」</strong> をタップします。</li>
+        <li>入力する人として <strong>自分／相手</strong> を選びます。</li>
+        <li>白い部分にApple Pencilで文字を書き、<strong>追加</strong> をタップします。</li>
       </ul>
 
-      <h3>5) 音声出力</h3>
+      <h3>音声出力</h3>
       <ul>
-        <li>下画面メニューのスピーカーマークをタップすると、翻訳された文字を読み上げます</li>
+        <li>画面下メニューの <strong>スピーカーマーク</strong> をタップすると、翻訳された文字を読み上げます。</li>
       </ul>
+    </section>
 
+    <section id="q6">
       <h2>Q6. 自動翻訳が初回だけ動きません</h2>
-      <div class="answer"><strong>A6.</strong> 初回のみ言語データのダウンロード／準備が必要なため、最初の1回は <strong>手動翻訳ボタン</strong> で翻訳してください。2回目以降は自動翻訳が動作します。</div>
+      <p><span class="answer-label">A6</span>初回のみ言語データのダウンロードまたは準備が必要なため、最初の1回は <strong>手動翻訳ボタン</strong> で翻訳してください。2回目以降は自動翻訳が動作します。</p>
+    </section>
 
+    <section id="q7">
       <h2>Q7. 消しゴムとゴミ箱の違いは？</h2>
-      <div class="answer"><strong>A7.</strong></div>
+      <p><span class="answer-label">A7</span>役割は次のとおりです。</p>
       <ul>
-        <li><strong>消しゴム：</strong> 線描画（線）を消します</li>
-        <li><strong>ゴミ箱：</strong> 線と文字を全消去します</li>
+        <li><strong>消しゴム：</strong> 線描画（線）を消します。</li>
+        <li><strong>ゴミ箱：</strong> 線と文字をまとめて全消去します。</li>
       </ul>
+    </section>
 
-      <h2>Q8. 文字表示を拡大／縮小／移動できますか？</h2>
-      <div class="answer"><strong>A8.</strong></div>
+    <section id="q8">
+      <h2>Q8. 文字表示を拡大・縮小・移動できますか？</h2>
+      <p><span class="answer-label">A8</span>はい、できます。</p>
       <ul>
-        <li><strong>2本指のピンチイン／ピンチアウト</strong>で拡大・縮小できます</li>
-        <li><strong>1本指でドラッグ</strong>して文字位置を移動できます<br>※移動するときは、先に <strong>消しゴム</strong> をタップしておくと線が描かれにくくなります</li>
+        <li><strong>2本指のピンチイン／ピンチアウト</strong> で拡大・縮小できます。</li>
+        <li><strong>1本指でドラッグ</strong> して文字位置を移動できます。</li>
       </ul>
+      <p class="small">移動するときは、先に <strong>消しゴム</strong> をタップしておくと線が描かれにくくなります。</p>
+    </section>
 
+    <section id="q9">
       <h2>Q9. 画面表示する文字の大きさ・線の太さを変更できますか？</h2>
-      <div class="answer"><strong>A9.</strong> はい、できます。画面下側のスライドバーを左右に動かすことで文字サイズを変更できます。スライダーバーをタップすると、線の太さ変更になります。</div>
+      <p><span class="answer-label">A9</span>はい、できます。</p>
+      <ul>
+        <li>画面下側のスライダーを左右に動かすと、文字サイズを変更できます。</li>
+        <li>スライダーをタップすると、線の太さ変更に切り替わります。</li>
+      </ul>
+    </section>
 
+    <section id="q10">
       <h2>Q10. 利用規約に同意しないと使えませんか？</h2>
-      <div class="answer"><strong>A10.</strong> はい。同意しない場合はアプリは機能しません。</div>
+      <p><span class="answer-label">A10</span>はい。同意しない場合、アプリは利用できません。</p>
+    </section>
 
+    <section id="q11">
       <h2>Q11. オフラインで使えますか？</h2>
-      <div class="answer"><strong>A11.</strong> はい、使えます。ただし <strong>翻訳機能を初めて使うとき</strong> に限り、該当言語のダウンロードが必要になり、オンライン環境が必要です。</div>
+      <p><span class="answer-label">A11</span>はい、使えます。ただし、翻訳機能を初めて使うときは、該当言語のダウンロードが必要なため、オンライン環境が必要です。</p>
+      <p>言語データの準備が完了した後は、対応する翻訳をオフラインで利用できます。</p>
+    </section>
 
+    <section id="q12">
       <h2>Q12. ピンチイン／ピンチアウトや文字の移動がうまくできず、線が引かれてしまいます。なぜですか？</h2>
-      <div class="answer"><strong>A12.</strong> 本アプリは指で線描画ができるため、操作の最初に画面に触れた瞬間が「描画」として認識され、線が入ってしまうことがあります。拡大縮小（ピンチ）や文字位置の移動を行うときは、先に <strong>消しゴムマーク</strong> をタップしてから操作してください。線が描かれにくくなり、拡大縮小・文字移動がスムーズになります。</div>
+      <p><span class="answer-label">A12</span>Bridgyは指で線描画ができるため、操作の最初に画面へ触れた瞬間が「描画」として認識され、線が入ることがあります。</p>
+      <p>拡大・縮小や文字位置の移動を行うときは、先に <strong>消しゴムマーク</strong> をタップしてから操作してください。線が描かれにくくなり、拡大・縮小や文字移動がスムーズになります。</p>
+    </section>
 
+    <section id="q13">
       <h2>Q13. 線が見えにくいのですが</h2>
-      <div class="answer"><strong>A13.</strong> iPadの色反転（スマート反転／反転）や高コントラストなどの表示設定によっては、線が見えにくいことがあります。設定をOFFにしてお試しください。<br>設定場所：<strong>設定 → アクセシビリティ → 画面表示とテキストサイズ →（反転／コントラスト）</strong></div>
-    </div>
-  </div>
+      <p><span class="answer-label">A13</span>iPadまたはiPhoneの色反転（スマート反転／反転）や高コントラストなどの表示設定によっては、線が見えにくいことがあります。設定をOFFにしてお試しください。</p>
+      <p>設定場所：<strong>設定 → アクセシビリティ → 画面表示とテキストサイズ → 反転／コントラスト</strong></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© Bridgy. This FAQ is provided for app support.</p>
+  </footer>
 </body>
 </html>
